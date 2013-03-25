@@ -1,0 +1,90 @@
+%\VignetteIndexEntry{TBX20 RNA-Seq data subset}
+%\VignetteKeywords{SpliceGraph}
+%\VignettePackage{TBX20BamSubset}
+\documentclass[11pt]{article}
+
+\usepackage{url}
+\usepackage{float}
+\usepackage{xcolor}
+
+\newcommand{\Rfunction}[1]{{\texttt{#1}}}
+\newcommand{\Robject}[1]{{\texttt{#1}}}
+\newcommand{\Rpackage}[1]{{\textit{#1}}}
+\newcommand{\Rmethod}[1]{{\texttt{#1}}}
+\newcommand{\Rfunarg}[1]{{\texttt{#1}}}
+\newcommand{\Rclass}[1]{{\textit{#1}}}
+\newcommand{\Rcode}[1]{{\texttt{#1}}}
+\newcommand{\software}[1]{\textsf{#1}}
+\newcommand{\R}{\software{R}}
+
+
+\title{TBX20 RNA-Seq data subset}
+\author{Daniel Bindreither}
+
+\SweaveOpts{keep.source=TRUE}
+
+\definecolor{c1}{HTML}{008C73}
+\definecolor{c2}{HTML}{BFFF00}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+The TBX20 data set \cite{Sakabe10022012} provides ChIP-Seq and RNA-Seq
+data. In here only the RNA-Seq part of the data is utilized. The raw
+data where downloaded from Gene Expression Omnibus (GEO)
+\cite{Barrett01012011}, accession number GSM767225-GSM767230.
+TBX20 (T-box 20) in general is a transcriptional regulator essential for cardiac
+development and maintenance of mouse heart tissue. In this study TXB20
+was knocked-out by using a Tamoxifen mediated conditional knock-out
+system. Transcriptional changes caused by the ablation of the second
+exon of TBX20 result in rapid onset of heart failures and the
+subsequent death of the mice. TBX20 knock-out adult heart tissue was
+compared to wild type adult heart tissue. This package provides a
+subset of the RNA-Seq data (chromosome 19) for demonstrating the capabilities 
+of the \Rpackage{SpliceGraph} package. The vignette describes how to 
+access the phenotypic data and the raw reads aligned with Bowtie \cite{Bowtie19261174}
+to the mm9 assembly of \textit{Mus musculus} from UCSC Genome 
+Browser \cite{Fujita18102010}.
+
+Accessing the experimental design ...
+
+<<>>=
+library("TBX20BamSubset")
+fn <- system.file("extdata", "phenoData.txt", 
+                  package="TBX20BamSubset")
+pd <- read.table(fn, header=TRUE,
+                 stringsAsFactors=FALSE)
+@ 
+
+
+<<results=tex, echo=FALSE>>=
+library(xtable)
+pd <- xtable(pd, caption="Design of the TBX20 experiment")
+print(pd)
+@ 
+
+Accessing the raw reads ...
+
+<<>>=
+library("Rsamtools")
+fls <- getBamFileList()
+bfs <- BamFileList(fls)
+@ 
+
+
+\bibliography{TBX20BamSubset}
+\bibliographystyle{plain}
+
+
+\section{Session Information}
+
+\begin{scriptsize}
+<<SessionInfo, echo=FALSE>>=
+sessionInfo()
+@
+\end{scriptsize}
+
+\end{document}
