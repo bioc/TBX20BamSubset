@@ -1,0 +1,7 @@
+"SRX" "SRR" "GSM" "condition" "replicate"
+"SRX085099" "SRR316184" "GSM767225" "normal" "1"
+"SRX085100" "SRR316185" "GSM767226" "normal" "2"
+"SRX085101" "SRR316186" "GSM767227" "normal" "3"
+"SRX085102" "SRR316187" "GSM767228" "Tbx20 knockout" "1"
+"SRX085103" "SRR316188" "GSM767229" "Tbx20 knockout" "2"
+"SRX085104" "SRR316189" "GSM767230" "Tbx20 knockout" "3"
