@@ -2,7 +2,7 @@ Package: TBX20BamSubset
 Title: Subset of BAM files from the "TBX20" experiment
 Description: Dual transcriptional activator and repressor roles of TBX20 regulate 
              adult cardiac structure and function. A subset of the RNA-Seq data.
-Version: 1.25.0
+Version: 1.26.0
 Author: D. Bindreither
 Maintainer: D. Bindreither <daniel.bindreither@gmail.com>
 Depends: Rsamtools (>= 1.9.8)
